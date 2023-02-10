@@ -1,6 +1,6 @@
 from app import app
 from config import db
-from models import Customer, Order, OrderDetail, OrderStatus, Item 
+from Models import Customer, Order, OrderDetail, OrderStatus, Item, Payment,Credit, Cash, Check, WireTransfer 
 from flask import Flask, request, jsonify, render_template
 
 with app.app_context():
@@ -180,7 +180,7 @@ def item_add():
 
 
 
-#Methode d'ajout paymet
+#Methode d'ajout payment
 
 
 @app.route('/payment/add', methods = ['POST'])

@@ -8,3 +8,11 @@ Content-Type: application/json
         "active" : 1
 }
 
+###
+POST http://127.0.0.1:2000/order/add 
+Content-Type : application/json 
+
+{ 
+   "createDate" : "2022-01-01",
+   "customerId" : 1 
+}

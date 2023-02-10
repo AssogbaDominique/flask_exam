@@ -23,12 +23,23 @@ class OrderDetail(db.Model):
     qty=db.Column(db.Integer, nullable=False)
     taxStatus=db.Column(db.String(120), nullable=False)
 
-class OrderStatus(db.Model):
-    id=db.Column(db.Integer, primary_key=True, nullable=False)
-    CREATE = db.Column(db.Integer, nullable=False)
-    SHIPPING = db.Column(db.Integer, nullable=False)
-    DELIVERED = db.Column(db.Integer, nullable=False)
-    PAID = db.Column(db.Integer, nullable=False)
+class OrderStatus(enum.Enum):
+    CREATE = 0
+    SHIPPING = 1
+    DELIVERED = 2
+    PAID = 3
 
-#class Payment(db.Model):
-  #  id = db.Column(db.Integer, primary_key=True, nullable=False)
+
+class Payement(db.Model):
+    id=db.Column(db.Integer, primary_key=True, nullable=False)
+    anoumt=db.Column(db.float, nullable=False)
+    Payment_mode= db.Column(db.String(121), nullable = False)
+    mapper_args= {'polymorphic_on':Payment_mode}
+
+
+class Credit(Payement):
+    id=db.Column(db.Integer, primary_key=True, nullable=False)
+    number=db.Column(db.String(122), nullable=False)
+    type= db.Column(db.String(121), nullable = False)
+    expireDAte=db.Column(db.Date, nullable = False)
+    mapper_args= {'polymorphic_identity':"Credit"}
