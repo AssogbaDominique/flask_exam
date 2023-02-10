@@ -3,9 +3,9 @@ Content-Type: application/json
 
 {
       "name" : "salut ",
-        "deliveryAddress" : "comment",
-        "contact" : "bien",
-        "active" : 1
+      "deliveryAddress" : "comment",
+      "contact" : "bien",
+      "active" : 1
 }
 
 ###

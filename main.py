@@ -1,15 +1,28 @@
 from app import app
 from config import db
-from Models import Customer, Order, OrderDetail, OrderStatus, Item, Payment,Credit, Cash, Check, WireTransfer 
+from Models import Cash, Check, Credit, Customer, Item, Order, OrderDetail, OrderStatus, Payment, WireTransfer
+from Models.Cash import Cash
+from Models.Check import Check
+from Models.Customer import Customer
+from Models.Item import Item
+from Models.Order import Order
+from Models.OrderDetail import OrderDetail
+from Models.OrderStatus import OrderStatus
+from Models.Payment import Payment
+from Models.WireTransfer import WireTransfer
+from Models.Customer import Customer
+
 from flask import Flask, request, jsonify, render_template
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
+    
 
 
 """Methode et route"""
 
-#==========La methode POST=================
+#======================================================POST===============================================
 
 
 #Methode d'ajout customer
@@ -180,7 +193,7 @@ def item_add():
 
 
 
-#Methode d'ajout payment
+#Methode d'ajout paymet
 
 
 @app.route('/payment/add', methods = ['POST'])
@@ -330,7 +343,7 @@ def wiretransfer_add():
         db.session.close()
 
 
-#============= Methode GET=====================
+#======================================================GET===============================================
 
 #Methode GET pour Customer
 @app.route('/customers', methods = ['GET'])

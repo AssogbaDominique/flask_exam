@@ -1,5 +1,3 @@
-import enum
-from sqlalchemy import Enum
 from config import db
 
 class OrderStatus (db.Model):
@@ -8,12 +6,3 @@ class OrderStatus (db.Model):
     SHIPPING = db.Column(db.Integer, nullable = False)
     DELIVERED = db.Column(db.Integer, nullable = False)
     PAID = db.Column(db.Integer, nullable = False)
-
-
-"""
-class OrderStatus(enum.Enum):
-    CREATE = 0
-    SHIPPING = 1
-    DELIVERED = 2
-    PAID = 3
-"""
